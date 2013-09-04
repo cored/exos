@@ -5,11 +5,11 @@ module Calendar
   module Holiday
 
     def date_for_mothersday(today = Time.now.utc)
-      date_for_parentsday(2, today)
+      date_for_parentsday(month_for_mothers_day, today)
     end
 
     def date_for_fathersday(today = Time.now.utc)
-      date_for_parentsday(11, today)
+      date_for_parentsday(month_for_parents_day, today)
     end
 
     def date_for_parentsday(month, today)
@@ -28,5 +28,13 @@ module Calendar
       return time + ((7 - time.wday) % 7) * 1.day
     end
 
+    def month_for_parents_day
+      11
+    end
+
+    def month_for_mothers_day
+      2
+    end
+    
   end
 end
